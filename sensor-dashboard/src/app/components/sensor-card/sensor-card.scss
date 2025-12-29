@@ -1,0 +1,18 @@
+.card {
+    border: 1px solid #ddd;
+    border-left: 8px solid;
+    padding: 15px;
+    border-radius: 5px;
+    width: 200px;
+    display: inline-block;
+}
+
+.value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.status-text {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}

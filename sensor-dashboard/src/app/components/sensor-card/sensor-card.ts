@@ -13,7 +13,7 @@ export class SensorCardComponent {
   name = input.required<string>();
   value = input<number>(0);
   unit = input<string>('°C');
-  typeValue = input<'asc' | 'desc'>();
+  typeValue = input.required<'asc' | 'desc'>();
 
   // Computed: Reage automaticamente quando o 'value' muda
   status = computed(() => {

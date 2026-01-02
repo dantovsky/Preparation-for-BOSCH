@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+// Definindo a paleta Bosch (Simulada)
+:root {
+    --bosch-blue: #007bc0;
+    --bosch-cyan: #00dfff;
+    --bosch-red: #ed0007;
+    --bosch-green: #4caf50;
+    --bg-color: #f8f9fa;
+    --text-main: #333;
+    --shadow: 4px 4px 16px -8px rgba(0, 0, 0, 0.3);
+}

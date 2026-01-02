@@ -1,19 +1,43 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
+import { Sensor } from '../models/sensor.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SensorService {
-  // Estado privado (encapsulamento)
-  private _sensors = signal([
-    { id: 1, name: 'Temperatura Motor', value: 85, unit: '°C', typeValue: 'asc' },
-    { id: 2, name: 'Pressão Pneus', value: 32, unit: 'PSI', typeValue: 'asc' },
-    { id: 3, name: 'Nível Óleo', value: 12, unit: '%', typeValue: 'desc' },
-    { id: 4, name: 'Nível Água', value: 57, unit: '%', typeValue: 'desc' },
-  ]);
-
-  // Exposição pública apenas para leitura
+  private http = inject(HttpClient); // Sintaxe moderna Angular 21
+  
+  private _sensors = signal<Sensor[]>([]); // Começa vazio
   sensors = this._sensors.asReadonly();
+
+  constructor() {
+    this.fetchInitialData();
+  }
+
+  async fetchInitialData() {
+    // Simulando chamada HTTP para uma API real (ex: telemetria da Bosch)
+    // Usamos firstValueFrom para transformar o Observable em Promise, facilitando o async/await
+    try {
+      const data = await firstValueFrom(
+        this.http.get<any[]>('https://jsonplaceholder.typicode.com/users')
+      );
+      
+      // Mapeamos o retorno da "API" para o seu formato com typeValue
+      const mappedSensors: Sensor[] = data.slice(0, 4).map((u, i) => ({
+        id: u.id,
+        name: u.company.name,
+        value: Math.floor(Math.random() * 100),
+        unit: i % 2 === 0 ? '°C' : '%',
+        typeValue: i % 2 === 0 ? 'asc' : 'desc'
+      }));
+
+      this._sensors.set(mappedSensors);
+    } catch (error) {
+      console.error('Erro ao buscar dados da Bosch API', error);
+    }
+  }
 
   updateAllSensors() {
     this._sensors.update(list => 
@@ -21,12 +45,3 @@ export class SensorService {
     );
   }
 }
-
-// import { Injectable } from '@angular/core';
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class Sensor {
-  
-// }

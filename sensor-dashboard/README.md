@@ -57,3 +57,32 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+# Versão inicial do services/sensor.ts com dados estáticos
+
+```ts
+import { Injectable, signal, computed } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SensorService {
+  // Estado privado (encapsulamento)
+  private _sensors = signal([
+    { id: 1, name: 'Temperatura Motor', value: 85, unit: '°C', typeValue: 'asc' },
+    { id: 2, name: 'Pressão Pneus', value: 32, unit: 'PSI', typeValue: 'asc' },
+    { id: 3, name: 'Nível Óleo', value: 12, unit: '%', typeValue: 'desc' },
+    { id: 4, name: 'Nível Água', value: 57, unit: '%', typeValue: 'desc' },
+  ]);
+
+  // Exposição pública apenas para leitura
+  sensors = this._sensors.asReadonly();
+
+  updateAllSensors() {
+    this._sensors.update(list => 
+      list.map(s => ({ ...s, value: Math.floor(Math.random() * 100) }))
+    );
+  }
+}
+```

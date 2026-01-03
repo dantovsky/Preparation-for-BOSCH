@@ -1,11 +1,8 @@
-# Preparation for BOSCH
+# # --- PREPARATION FO BOSCH (Job application)
 
-Training new Angular Versions and Spring Boot
+This repositories was used to training the modern Angular Versions (19+) and Spring Boot.
 
-Install Angular app
-```
-ng new sensor-dashboard --standalone --style=scss --routing
-```
+All steps during the studies was described here in this document e repository.
 
 # Job :: Fullstack Engineer (f/m/div.)
 
@@ -102,8 +99,31 @@ Work #LikeABosch includes:
 
 🍽️ Canteen
 
- 
 
 Success stories don´t just happen. They are made...
 
 Make it happen! We are looking forward to your application!
+
+
+---
+
+
+# Tech Environments
+
+## Install Angular app
+```
+ng new sensor-dashboard --standalone --style=scss --routing
+```
+
+## Methods used to study
+
+- Consulting Gemini to as for news in Angular
+- Used Gemini to guide me on practicing Angular and Spring Boot using modern methods
+- Video tutorial in YouTube
+    - Tudo Sobre o Angular 21: Novidades, Mudanças e Otimizações  
+      https://youtu.be/MJ9Slu0s_y8?si=_QqCUWKEB2VMLFw2
+    - CURSO DE SPRING para INICIANTES | Tutorial Completo de Java Spring (Fernanda Kipper)  
+      https://www.youtube.com/watch?v=YY_hf0FOIcU
+    - Angular Moderno: Standalone Components (loiane Groner)  
+      https://youtu.be/6jZ0ewVQP0Y?si=CIOr26v-5tQ_6vb5
+

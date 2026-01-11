@@ -86,3 +86,11 @@ export class SensorService {
   }
 }
 ```
+
+# BACKEND
+
+O backend iniciou-se na criação da estrutura inicial através o Spring Boot:
+
+https://start.spring.io/
+
+

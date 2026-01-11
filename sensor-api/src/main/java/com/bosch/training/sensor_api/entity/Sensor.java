@@ -1,5 +1,6 @@
 package com.bosch.training.sensor_api.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,7 +14,8 @@ public class Sensor {
     private Long id;
 
     private String name;
-    private Double value;
+    @JsonProperty("sensorValue")
+    private Double sensor_value;
     private String unit;
     private String typeValue; // 'asc' ou 'desc'
 }

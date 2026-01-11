@@ -16,14 +16,6 @@ export class AppComponent {
   // Acessamos o sinal do serviço
   sensors = this.sensorService.sensors;
 
-  // Criamos um Signal com a lista de sensores (padrão Angular 19+)
-  // sensors = signal([
-  //   { id: 1, name: 'Temperatura Motor', value: 85, unit: '°C', typeValue: 'asc' },
-  //   { id: 2, name: 'Pressão Pneus', value: 32, unit: 'PSI', typeValue: 'asc' },
-  //   { id: 3, name: 'Nível Óleo', value: 12, unit: '%', typeValue: 'desc' },
-  //   { id: 4, name: 'Nível Água', value: 57, unit: '%', typeValue: 'desc' },
-  // ]);
-
   updateValues() {
     this.sensorService.updateAllSensors();
   }

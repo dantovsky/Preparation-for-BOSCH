@@ -1,4 +1,4 @@
-# # --- PREPARATION FO BOSCH (Job application)
+# # --- PREPARATION FOR BOSCH (Job application)
 
 This repositories was used to training the modern Angular Versions (19+) and Spring Boot.
 
